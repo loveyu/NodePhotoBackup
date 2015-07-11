@@ -1,0 +1,14 @@
+{
+  "name": "PhotoBackup",
+  "version": "1.0.0",
+  "description": "Simple File Directory Backup Process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loveyu",
+  "license": "MIT",
+  "devDependencies": {
+    "encoding": "^0.1.11"
+  }
+}
