@@ -9,6 +9,12 @@
   "author": "loveyu",
   "license": "MIT",
   "devDependencies": {
-    "encoding": "^0.1.11"
+    "MD5": "^1.2.2",
+    "encoding": "^0.1.11",
+    "mongodb": "^2.0.36"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:loveyu/PhotoBackup.git"
   }
 }
