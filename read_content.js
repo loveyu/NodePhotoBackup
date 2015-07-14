@@ -1,6 +1,7 @@
 var fs = require('fs');
 var util = require('util');
 var md5 = require('MD5');
+var my_util = require('./my_util.js');
 
 /**
  * 读取文件系统
@@ -77,24 +78,10 @@ module.exports = function (config, finish) {
     };
 
     /**
-     * 格式化文件大小
-     */
-    var format_size = function (size) {
-        var a = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-        var pos = 0;
-        if (size < 0)return '出错';
-        while (size > 1024) {
-            size /= 1024;
-            pos++;
-        }
-        return (Math.round(size * 100) / 100) + a[pos];
-    };
-
-    /**
      * 设置用户可读的文件大小
      */
     var set_human_size = function () {
-        root_data.size_count_h = format_size(root_data.size_count);
+        root_data.size_count_h = my_util.format_size(root_data.size_count);
         set_human_size_re(root_data.dir);
     };
     /**
@@ -105,11 +92,11 @@ module.exports = function (config, finish) {
         for (var i in data) {
             if (data.hasOwnProperty(i)) {
                 if (data[i].hasOwnProperty('dir')) {
-                    data[i].size_count_h = format_size(data[i].size_count);
+                    data[i].size_count_h = my_util.format_size(data[i].size_count);
                     set_human_size_re(data[i].dir);
                 } else {
                     if (data[i].hasOwnProperty('size_h')) {
-                        data[i].size_h = format_size(data[i].size);
+                        data[i].size_h = my_util.format_size(data[i].size);
                     }
                 }
             }
