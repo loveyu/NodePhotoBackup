@@ -2,6 +2,7 @@
   <dictionary name="loveyu">
     <words>
       <w>ctime</w>
+      <w>dirname</w>
       <w>mtime</w>
     </words>
   </dictionary>

@@ -5,5 +5,6 @@ module.exports = {
     encode: "GB2312",//备份文件夹
     miniDept: 2,//最小压缩深度
     maxDir: 2 * 1024 * 1024 * 1024,//最大文件夹大小
-    maxFile: 1024 * 1024 * 1024//最大不压缩的文件
+    maxFile: 1024 * 1024 * 1024,//最大不压缩的文件
+    p7zExe:'D:\\Program Files\\7-Zip\\7z.exe'
 };
