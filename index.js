@@ -5,22 +5,22 @@ var backup = require("./backup.js");
 
 var startTime = new Date().getTime();
 rc(config, function (rc) {
-    var endTime = new Date().getTime();
+	var endTime = new Date().getTime();
 
-    console.error("Directory read time: " + ((endTime - startTime) / 1000));
+	console.error("Directory read time: " + ((endTime - startTime) / 1000));
 
-    //console.log(JSON.stringify(rc, null, "\t"));
+	//console.log(JSON.stringify(rc, null, "\t"));
 
-    mongo("photo_backup", function (db) {
-        db.insert(rc, function (result) {
-            //console.log(result);
-            console.error("Insert complete");
+	mongo("photo_backup", function (db) {
+		db.insert(rc, function (result) {
+			//console.log(result);
+			console.error("Insert complete");
 
-            backup(rc, function () {
-                console.error("backup complete.");
-                process.exit(0);
-            });
-        });
-    });
+			backup(rc, function () {
+				console.error("backup complete.");
+				process.exit(0);
+			});
+		});
+	});
 
 });
