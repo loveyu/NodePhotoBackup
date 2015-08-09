@@ -17,6 +17,7 @@ module.exports = function (data, cb, error) {
 		}
 	}
 	var bc_file = backup_path + "/" + config.backupConfig;
+	var bc_file_old = "";
 	if (!fs.existsSync(bc_file)) {
 		//检查目录是否为空
 		var list = fs.readdirSync(backup_path);
@@ -27,7 +28,8 @@ module.exports = function (data, cb, error) {
 		}
 	} else {
 		//backupConfig = JSON.parse(fs.readFileSync(bc_file, "utf-8"));
-
+		bc_file_old = backup_path + "/" + config.backupConfig + "_bk_" + my_util.time("yyyyMMdd_hhmmss");
+		fs.renameSync(bc_file, bc_file_old);
 	}
 	backupConfig.list = [];
 	var get_dir_files = function (data, path) {
@@ -134,5 +136,6 @@ module.exports = function (data, cb, error) {
 	};
 	deep_check(data, 0, "");
 	fs.writeFileSync(bc_file, JSON.stringify(backupConfig, null, "\t"));
+	my_util.copy_file(bc_file, bc_file + "_s_" + my_util.time("yyyyMMdd_hhmmss"));
 	cb();
 };

@@ -6,6 +6,7 @@
       <w>ctime</w>
       <w>dirname</w>
       <w>mtime</w>
+      <w>striptags</w>
     </words>
   </dictionary>
 </component>
